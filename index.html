@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner API Documentation - TaxCDS</title>
+  <title>Admin API Documentation - TaxCDSTaxNotification</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
     .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px; }
@@ -35,11 +35,11 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>Partner API Documentation - TaxCDS</h1>
-      <p>Tài liệu API tra cứu thông tin thuế dành cho đối tác.</p>
+      <h1>Admin API Documentation - TaxCDSTaxNotification</h1>
+      <p>Tai lieu API Admin cho module thong bao thue TaxCDSTaxNotification.</p>
       <p>
-        <a href="./index.md">Mở bản Markdown</a> |
-        <a href="./Common.html">Quy chuẩn chung</a>
+        <a href="./index.md">Mo ban Markdown</a> |
+        <a href="./Common.html">Quy chuan chung</a>
       </p>
     </div>
 
@@ -47,67 +47,62 @@
       <h2>Module</h2>
       <ul>
         <li>
-          <strong>TaxCDS</strong><br/>
-          <a href="./modules/TaxCDS/index.html">Mở module TaxCDS (HTML)</a><br/>
-          <a href="./modules/TaxCDS/index.md">Mở module TaxCDS (MD)</a>
+          <strong>TaxCDSTaxNotification</strong><br/>
+          <a href="./modules/TaxCDSTaxNotification/index.html">Mo module TaxCDSTaxNotification (HTML)</a><br/>
+          <a href="./modules/TaxCDSTaxNotification/index.md">Mo module TaxCDSTaxNotification (MD)</a>
         </li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>Danh sách API TaxCDS</h2>
+      <h2>Danh sach API</h2>
       <ul>
         <li>
-          <strong>Tra cứu mã số thuế</strong>
-          <span class="badge">MST</span><br/>
-          <span class="path">POST /TaxCDSMstLookup/partner/lookupMst</span><br/>
-          <a href="./modules/TaxCDS/TaxCDSMstLookup_LookupMst.html">HTML</a> |
-          <a href="./modules/TaxCDS/TaxCDSMstLookup_LookupMst.md">MD</a>
+          <strong>Insert many thong bao thue</strong>
+          <span class="badge">Insert</span><br/>
+          <span class="path">POST /TaxCDSTaxNotification/insertMany</span><br/>
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_InsertMany.html">HTML</a> |
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_InsertMany.md">MD</a>
         </li>
 
         <li>
-          <strong>Tra cứu tình trạng hộ kinh doanh</strong>
-          <span class="badge">HKD</span><br/>
-          <span class="path">POST /TaxCDSMstLookup/partner/lookupHkdStatus</span><br/>
-          <a href="./modules/TaxCDS/TaxCDSMstLookup_LookupHkdStatus.html">HTML</a> |
-          <a href="./modules/TaxCDS/TaxCDSMstLookup_LookupHkdStatus.md">MD</a>
+          <strong>Tim danh sach thong bao thue</strong>
+          <span class="badge">Find</span><br/>
+          <span class="path">POST /TaxCDSTaxNotification/find</span><br/>
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_Find.html">HTML</a> |
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_Find.md">MD</a>
         </li>
 
         <li>
-          <strong>Tra cứu nghĩa vụ thuế</strong>
-          <span class="badge">Nghĩa vụ thuế</span><br/>
-          <span class="path">POST /TaxCDSObligationLookup/partner/lookupTaxObligation</span><br/>
-          <a href="./modules/TaxCDS/TaxCDSObligationLookup_LookupTaxObligation.html">HTML</a> |
-          <a href="./modules/TaxCDS/TaxCDSObligationLookup_LookupTaxObligation.md">MD</a>
-        </li>
-
-        <li>
-          <strong>Tra cứu quyết toán thuế</strong>
-          <span class="badge">Quyết toán</span><br/>
-          <span class="path">POST /TaxCDSFinalizationLookup/partner/lookupTaxFinalization</span><br/>
-          <a href="./modules/TaxCDS/TaxCDSFinalizationLookup_LookupTaxFinalization.html">HTML</a> |
-          <a href="./modules/TaxCDS/TaxCDSFinalizationLookup_LookupTaxFinalization.md">MD</a>
-        </li>
-
-        <li>
-          <strong>Tra cứu tình trạng nộp tờ khai</strong>
-          <span class="badge">Tờ khai</span><br/>
-          <span class="path">POST /TaxCDSDeclarationStatusLookup/partner/lookupDeclarationStatus</span><br/>
-          <a href="./modules/TaxCDS/TaxCDSDeclarationStatusLookup_LookupDeclarationStatus.html">HTML</a> |
-          <a href="./modules/TaxCDS/TaxCDSDeclarationStatusLookup_LookupDeclarationStatus.md">MD</a>
+          <strong>Tim thong bao thue theo id</strong>
+          <span class="badge">FindById</span><br/>
+          <span class="path">POST /TaxCDSTaxNotification/findById</span><br/>
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_FindById.html">HTML</a> |
+          <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_FindById.md">MD</a>
         </li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>Data test tham chiếu</h2>
+      <h2>Huong dan token (bat buoc)</h2>
+      <p>3 API tren yeu cau staff token trong header Authorization theo dinh dang <code>Bearer &lt;token&gt;</code>.</p>
       <ul>
-        <li>apikey: 911abff6-137a-4aa3-a836-555a1d30359b</li>
-        <li>taxCode: 8173748371</li>
-        <li>citizenIdentityNumber: 079183000002</li>
-        <li>taxpayerName: Nguyễn Văn A</li>
+        <li>Buoc 1: Goi <code>POST /Staff/loginStaff</code> voi username va password staff.</li>
+        <li>Buoc 2: Lay <code>data.token</code> tu response login.</li>
+        <li>Buoc 3: Truyen vao header <code>Authorization: Bearer &lt;token&gt;</code>.</li>
       </ul>
-      <p class="note">Lưu ý: chỉ dùng để test/integration, cần thay bằng dữ liệu môi trường thật trước production.</p>
+      <p class="note">Xem them vi du curl dang nhap trong trang Common va tung API detail page.</p>
+    </div>
+
+    <div class="card">
+      <h2>Data test tham chieu</h2>
+      <ul>
+        <li>username staff test: string</li>
+        <li>password staff test: string</li>
+        <li>taxNotiNotificationCode mau: TAXCDS-NOTI-DEBT-001</li>
+        <li>taxNotiPayerTaxCode mau: 0312345678</li>
+      </ul>
+      <p class="note">Luu y: can thay bang tai khoan va du lieu moi truong that truoc khi UAT/production.</p>
     </div>
   </div>
 </body>

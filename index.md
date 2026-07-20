@@ -1,52 +1,41 @@
-# Partner API Documentation - TaxCDS
+# Admin API Documentation - TaxCDSTaxNotification
 
-Tài liệu API tra cứu thông tin thuế dành cho đối tác.
+Tai lieu API Admin cho module TaxCDSTaxNotification.
 
-## Danh sách module
+## Danh sach module
 
-1. TaxCDS
-- Module index HTML: ./modules/TaxCDS/index.html
-- Module index MD: ./modules/TaxCDS/index.md
+1. TaxCDSTaxNotification
+- Module index HTML: ./modules/TaxCDSTaxNotification/index.html
+- Module index MD: ./modules/TaxCDSTaxNotification/index.md
 
-## Danh sách API TaxCDS
+## Danh sach API
 
-1. Tra cứu mã số thuế
-- Endpoint: `POST /TaxCDSMstLookup/partner/lookupMst`
-- HTML: ./modules/TaxCDS/TaxCDSMstLookup_LookupMst.html
-- MD: ./modules/TaxCDS/TaxCDSMstLookup_LookupMst.md
+1. Insert many thong bao thue
+- Endpoint: POST /TaxCDSTaxNotification/insertMany
+- HTML: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_InsertMany.html
+- MD: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_InsertMany.md
 
-2. Tra cứu tình trạng hộ kinh doanh
-- Endpoint: `POST /TaxCDSMstLookup/partner/lookupHkdStatus`
-- HTML: ./modules/TaxCDS/TaxCDSMstLookup_LookupHkdStatus.html
-- MD: ./modules/TaxCDS/TaxCDSMstLookup_LookupHkdStatus.md
+2. Tim danh sach thong bao thue
+- Endpoint: POST /TaxCDSTaxNotification/find
+- HTML: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_Find.html
+- MD: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_Find.md
 
-3. Tra cứu nghĩa vụ thuế
-- Endpoint: `POST /TaxCDSObligationLookup/partner/lookupTaxObligation`
-- HTML: ./modules/TaxCDS/TaxCDSObligationLookup_LookupTaxObligation.html
-- MD: ./modules/TaxCDS/TaxCDSObligationLookup_LookupTaxObligation.md
+3. Tim thong bao thue theo id
+- Endpoint: POST /TaxCDSTaxNotification/findById
+- HTML: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_FindById.html
+- MD: ./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_FindById.md
 
-4. Tra cứu quyết toán thuế
-- Endpoint: `POST /TaxCDSFinalizationLookup/partner/lookupTaxFinalization`
-- HTML: ./modules/TaxCDS/TaxCDSFinalizationLookup_LookupTaxFinalization.html
-- MD: ./modules/TaxCDS/TaxCDSFinalizationLookup_LookupTaxFinalization.md
+## Huong dan token (bat buoc)
 
-5. Tra cứu tình trạng nộp tờ khai
-- Endpoint: `POST /TaxCDSDeclarationStatusLookup/partner/lookupDeclarationStatus`
-- HTML: ./modules/TaxCDS/TaxCDSDeclarationStatusLookup_LookupDeclarationStatus.html
-- MD: ./modules/TaxCDS/TaxCDSDeclarationStatusLookup_LookupDeclarationStatus.md
+- Buoc 1: Goi POST /Staff/loginStaff voi payload username/password.
+- Buoc 2: Lay data.token tu response.
+- Buoc 3: Truyen header Authorization: Bearer token cho cac API TaxCDSTaxNotification.
 
-## Quy ước tài liệu
+## Data test tham chieu
 
-- Mỗi API có 2 file tương ứng: 1 file Markdown và 1 file HTML.
-- Trang chủ có 2 file tương ứng: `index.md` và `index.html`.
-- Module TaxCDS có 2 file index tương ứng: `modules/TaxCDS/index.md` và `modules/TaxCDS/index.html`.
-- cURL mẫu chỉ giữ trường hợp happy case để tránh nhiễu khi tích hợp.
+- username staff test: string
+- password staff test: string
+- taxNotiNotificationCode mau: TAXCDS-NOTI-DEBT-001
+- taxNotiPayerTaxCode mau: 0312345678
 
-## Data test đang dùng cho TaxCDS
-
-- apikey: 911abff6-137a-4aa3-a836-555a1d30359b
-- taxCode: 8173748371
-- citizenIdentityNumber: 079183000002
-- taxpayerName: Nguyễn Văn A
-
-Developer cần thay lại credential và dữ liệu theo môi trường thật trước khi UAT/production.
+Can thay bang du lieu moi truong that khi tich hop.
