@@ -1,6 +1,6 @@
-# Admin API - Tim danh sach thong bao thue
+# Admin API - Tìm danh sách thông báo thuế
 
-Tim kiem danh sach thong bao thue theo bo loc, searchText va phan trang.
+Tìm kiếm danh sách thông báo thuế theo bộ lọc, searchText và phân trang.
 
 ## Endpoint
 
@@ -9,37 +9,37 @@ Tim kiem danh sach thong bao thue theo bo loc, searchText va phan trang.
 
 ## Headers schema
 
-| Header | Required | Mo ta |
+| Header | Required | Mô tả |
 |---|---|---|
 | Authorization | Yes | Bearer staff token |
 
 ## Body schema
 
-| Field | Type | Required | Rule | Mo ta |
+| Field | Type | Required | Rule | Mô tả |
 |---|---|---|---|---|
-| filter | object | No | default {} | Bo loc tim kiem |
-| filter.taxNotiNotificationCode | string | No | allow('') | Loc theo ma thong bao |
-| filter.taxNotiPayerTaxCode | string | No | allow('') | Loc theo ma so thue |
-| filter.taxNotiPayerIdentity | string | No | allow('') | Loc theo CCCD/CMND |
-| filter.taxNotiPayerName | string | No | allow('') | Loc theo ten nguoi nop thue |
-| filter.taxNotiDocumentCode | string | No | allow('') | Loc theo ma van ban |
-| filter.taxNotiDocumentTitle | string | No | allow('') | Loc theo tieu de van ban |
-| searchText | string | No | default '' | Chuoi tim kiem tong quat |
-| skip | number | No | min(0), default 0 | So ban ghi bo qua |
-| limit | number | No | max(100), default 20 | So ban ghi toi da tra ve |
-| order.key | string | No | default createdAt | Truong sap xep |
-| order.value | string | No | default desc | Chieu sap xep |
+| filter | object | No | default  | Bộ lọc tìm kiếm |
+| filter.taxNotiType | string | No | | Lọc theo loại thông báo (TB001-TB008) |
+| filter.taxNotiNotificationDate | array | No | items(string) | Lọc theo khoảng ngày thông báo ['2023-01-01', '2023-12-31'] |
+| startDate | string | No | | Ngày bắt đầu lọc |
+| endDate | string | No | | Ngày kết thúc lọc |
+| searchText | string | No | default '' | Chuỗi tìm kiếm tổng quát |
+| skip | number | No | min(0), default 0 | Số bản ghi bỏ qua |
+| limit | number | No | max(100), default 20 | Số bản ghi tối đa trả về |
+| order.key | string | No | default createdAt | Trường sắp xếp |
+| order.value | string | No | default desc | Chiều sắp xếp |
 
 ## Sample Request
 
+```bash
 curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/find' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer <staff_token>' \
   --data '{
     "filter": {
-      "taxNotiPayerTaxCode": "0312345678"
+      "taxNotiType": "TB001",
+      "taxNotiNotificationDate": ["2024-01-01", "2024-12-31"]
     },
-    "searchText": "",
+    "searchText": "Nguyen Van A",
     "skip": 0,
     "limit": 20,
     "order": {
@@ -47,9 +47,11 @@ curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/find' \
       "value": "desc"
     }
   }'
+```
 
 ## Success response
 
+```json
 {
   "statusCode": 200,
   "error": null,
@@ -58,22 +60,27 @@ curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/find' \
     "data": [
       {
         "taxCDSTaxNotificationId": 1,
-        "taxNotiNotificationCode": "TAXCDS-NOTI-DEBT-001",
-        "taxNotiTitle": "Thong bao no thue va cham nop",
-        "taxNotiPayerTaxCode": "0312345678"
+        "taxNotiNotificationCode": "TB001-2024-001",
+        "taxNotiTitle": "Thông báo nợ thuế và chậm nộp",
+        "taxNotiType": "TB001",
+        "taxNotiPayerTaxCode": "0312345678",
+        "taxNotiPayerName": "Nguyen Van A",
+        "taxNotiNotificationDate": "2024-08-15",
+        "createdAt": "2024-08-15T10:30:00.000Z"
       }
     ],
-    "totalNextPage": 0
+    "total": 1
   }
 }
+```
 
-## Ma loi
+## Mã lỗi
 
-| HTTP | Ma loi | Mo ta |
+| HTTP | Mã lỗi | Mô tả |
 |---|---|---|
-| 400 | Validation Error | Payload khong dung schema |
-| 401 | UNAUTHORIZED | Thieu hoac sai token |
-| 500 | UNKNOWN_ERROR | Loi khong xac dinh |
+| 400 | Validation Error | Payload không đúng schema |
+| 401 | UNAUTHORIZED | Thiếu hoặc sai token |
+| 500 | UNKNOWN_ERROR | Lỗi không xác định |
 
 ## Tham khao
 
@@ -82,9 +89,9 @@ curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/find' \
 
 ## Data test cho developer
 
-- Login lay token: POST /Staff/loginStaff
+- Login lấy token: POST /Staff/loginStaff
 - username: string
 - password: string
-- taxNotiPayerTaxCode: 0312345678
+- taxNotiType: TB001
 
-Can thay bang du lieu moi truong that khi tich hop.
+Cần thay bằng dữ liệu môi trường thật khi tích hợp.

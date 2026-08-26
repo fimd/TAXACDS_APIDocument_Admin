@@ -1,6 +1,6 @@
-# Admin API - Tim thong bao thue theo id
+# Admin API - Tìm thông báo thuế theo ID
 
-Lay chi tiet thong bao thue theo taxCDSTaxNotificationId.
+Lấy chi tiết thông báo thuế theo taxCDSTaxNotificationId.
 
 ## Endpoint
 
@@ -9,58 +9,69 @@ Lay chi tiet thong bao thue theo taxCDSTaxNotificationId.
 
 ## Headers schema
 
-| Header | Required | Mo ta |
+| Header | Required | Mô tả |
 |---|---|---|
 | Authorization | Yes | Bearer staff token |
 
 ## Body schema
 
-| Field | Type | Required | Rule | Mo ta |
+| Field | Type | Required | Rule | Mô tả |
 |---|---|---|---|---|
-| id | number | Yes | integer, min(1) | taxCDSTaxNotificationId can tim |
+| id | number | Yes | integer, min(1) | taxCDSTaxNotificationId cần tìm |
 
 ## Sample Request
 
+```bash
 curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/findById' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer <staff_token>' \
   --data '{
     "id": 1
   }'
+```
 
 ## Success response
 
+```json
 {
   "statusCode": 200,
   "error": null,
   "message": "Success",
   "data": {
     "taxCDSTaxNotificationId": 1,
-    "taxNotiNotificationCode": "TAXCDS-NOTI-DEBT-001",
-    "taxNotiTitle": "Thong bao no thue va cham nop",
-    "taxNotiPayerTaxCode": "0312345678"
+    "taxNotiNotificationCode": "TB001-2024-001",
+    "taxNotiTitle": "Thông báo nợ thuế và chậm nộp",
+    "taxNotiContent": "Nội dung thông báo...",
+    "taxNotiType": "TB001",
+    "taxNotiPayerTaxCode": "0312345678",
+    "taxNotiPayerIdentity": "001234567890",
+    "taxNotiPayerName": "Nguyen Van A",
+    "taxNotiPayerPhone": "0912345678",
+    "taxNotiNotificationDate": "2024-08-15",
+    "createdAt": "2024-08-15T10:30:00.000Z"
   }
 }
+```
 
-## Ma loi
+## Mã lỗi
 
-| HTTP | Ma loi | Mo ta |
+| HTTP | Mã lỗi | Mô tả |
 |---|---|---|
-| 400 | Validation Error | Payload khong dung schema |
-| 401 | UNAUTHORIZED | Thieu hoac sai token |
-| 500 | NOT_FOUND | Khong tim thay thong bao theo id |
-| 500 | UNKNOWN_ERROR | Loi khong xac dinh |
+| 400 | Validation Error | Payload không đúng schema |
+| 401 | UNAUTHORIZED | Thiếu hoặc sai token |
+| 500 | NOT_FOUND | Không tìm thấy thông báo theo id |
+| 500 | UNKNOWN_ERROR | Lỗi không xác định |
 
-## Tham khao
+## Tham khảo
 
 - Common auth token: ../../Common.html#admin-auth
 - Common error: ../../Common.html#common-error
 
 ## Data test cho developer
 
-- Login lay token: POST /Staff/loginStaff
+- Login lấy token: POST /Staff/loginStaff
 - username: string
 - password: string
-- id mau tim kiem: 1 (su dung id vua insert trong testcase)
+- id mẫu tìm kiếm: 1 (sử dụng id vừa insert trong testcase)
 
-Can thay bang du lieu moi truong that khi tich hop.
+Cần thay bằng dữ liệu môi trường thật khi tích hợp.
