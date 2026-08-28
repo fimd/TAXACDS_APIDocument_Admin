@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quy chuan chung - Admin API</title>
+  <title>Quy chuẩn chung - Admin API</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
     .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
@@ -24,10 +24,10 @@
   <div class="wrap">
 
     <div class="card">
-      <h1>Quy chuan chung - Admin API</h1>
-      <p>Tai lieu tham chieu chung cho bo API Admin TaxCDSTaxNotification: auth token va common error.</p>
+      <h1>Quy chuẩn chung - Admin API</h1>
+      <p>Tài liệu tham chiếu chung cho bộ API Admin TaxCDSTaxNotification: auth token và common error.</p>
       <nav>
-        <a href="./index.html">Trang chu tai lieu</a>
+        <a href="./index.html">Trang chủ tài liệu</a>
         <a href="#admin-auth">Admin Auth Token</a>
         <a href="#common-error">Common Error</a>
       </nav>
@@ -35,13 +35,13 @@
 
     <div class="card" id="admin-auth">
       <h2>Admin Auth Token</h2>
-      <p>API TaxCDSTaxNotification yeu cau staff token thong qua header <code>Authorization</code>.</p>
-      <h3>1. Dang nhap lay token</h3>
+      <p>API TaxCDSTaxNotification yêu cầu staff token thông qua header <code>Authorization</code>.</p>
+      <h3>1. Đăng nhập lấy token</h3>
       <table>
         <tr><th style="width:180px">Endpoint</th><td>POST /Staff/loginStaff</td></tr>
         <tr><th>Body</th><td>{ "username": "string", "password": "string" }</td></tr>
       </table>
-      <p>Vi du curl dang nhap:</p>
+      <p>Ví dụ curl đăng nhập:</p>
       <pre>curl --location 'http://127.0.0.1:4001/Staff/loginStaff' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -49,39 +49,39 @@
     "password": "string"
   }'</pre>
 
-      <p>Response thanh cong se co truong <code>data.token</code> de su dung cho API tiep theo.</p>
+      <p>Response thành công sẽ có trường <code>data.token</code> để sử dụng cho API tiếp theo.</p>
 
-      <h3>2. Truyen token vao API Admin</h3>
-      <p>Dinh dang header bat buoc:</p>
+      <h3>2. Truyền token vào API Admin</h3>
+      <p>Định dạng header bắt buộc:</p>
       <pre>Authorization: Bearer &lt;staff_token&gt;</pre>
     </div>
 
     <div class="card" id="common-error">
       <h2>Common Error</h2>
-      <p>Cac ma loi chung tra ve trong truong <code>error</code> cua response khi API that bai.</p>
+      <p>Các mã lỗi chung trả về trong trường <code>error</code> của response khi API thất bại.</p>
       <table>
         <tr>
-          <th style="width:30%">Ma loi</th>
-          <th>Mo ta</th>
+          <th style="width:30%">Mã lỗi</th>
+          <th>Mô tả</th>
         </tr>
         <tr>
           <td><code>UNKNOWN_ERROR</code></td>
-          <td>Loi khong xac dinh - he thong gap tinh huong ngoai du kien.</td>
+          <td>Lỗi không xác định - hệ thống gặp tình huống ngoài dự kiến.</td>
         </tr>
         <tr>
           <td><code>NOT_FOUND</code></td>
-          <td>Khong tim thay tai nguyen yeu cau.</td>
+          <td>Không tìm thấy tài nguyên yêu cầu.</td>
         </tr>
         <tr>
           <td><code>INSERT_FAILED</code></td>
-          <td>Them moi du lieu vao he thong that bai.</td>
+          <td>Thêm mới dữ liệu vào hệ thống thất bại.</td>
         </tr>
         <tr>
           <td><code>API_FAILED</code></td>
-          <td>Goi API noi bo hoac ben thu ba that bai.</td>
+          <td>Gọi API nội bộ hoặc bên thứ ba thất bại.</td>
         </tr>
       </table>
-      <p style="margin-top:12px;font-size:0.9em;color:#6b7280;">Cau truc response loi dien hinh:</p>
+      <p style="margin-top:12px;font-size:0.9em;color:#6b7280;">Cấu trúc response lỗi điển hình:</p>
       <pre>{
   "statusCode": 500,
   "error": "NOT_FOUND",

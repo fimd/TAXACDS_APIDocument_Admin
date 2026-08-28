@@ -36,10 +36,10 @@
   <div class="wrap">
     <div class="card">
       <h1>Admin API Documentation - TaxCDSTaxNotification</h1>
-      <p>Tai lieu API Admin cho module thong bao thue TaxCDSTaxNotification.</p>
+      <p>Tài liệu API Admin cho module thông báo thuế TaxCDSTaxNotification.</p>
       <p>
-        <a href="./index.md">Mo ban Markdown</a> |
-        <a href="./Common.html">Quy chuan chung</a>
+        <a href="./index.md">Mở bản Markdown</a> |
+        <a href="./Common.html">Quy chuẩn chung</a>
       </p>
     </div>
 
@@ -48,17 +48,17 @@
       <ul>
         <li>
           <strong>TaxCDSTaxNotification</strong><br/>
-          <a href="./modules/TaxCDSTaxNotification/index.html">Mo module TaxCDSTaxNotification (HTML)</a><br/>
-          <a href="./modules/TaxCDSTaxNotification/index.md">Mo module TaxCDSTaxNotification (MD)</a>
+          <a href="./modules/TaxCDSTaxNotification/index.html">Mở module TaxCDSTaxNotification (HTML)</a><br/>
+          <a href="./modules/TaxCDSTaxNotification/index.md">Mở module TaxCDSTaxNotification (MD)</a>
         </li>
       </ul>
     </div>
 
     <!-- <div class="card">
-      <h2>Danh sach API</h2>
+      <h2>Danh sách API</h2>
       <ul>
         <li>
-          <strong>Insert many thong bao thue</strong>
+          <strong>Insert many thông báo thuế</strong>
           <span class="badge">Insert</span><br/>
           <span class="path">POST /TaxCDSTaxNotification/insertMany</span><br/>
           <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_InsertMany.html">HTML</a> |
@@ -66,7 +66,7 @@
         </li>
 
         <li>
-          <strong>Tim danh sach thong bao thue</strong>
+          <strong>Tìm danh sách thông báo thuế</strong>
           <span class="badge">Find</span><br/>
           <span class="path">POST /TaxCDSTaxNotification/find</span><br/>
           <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_Find.html">HTML</a> |
@@ -74,7 +74,7 @@
         </li>
 
         <li>
-          <strong>Tim thong bao thue theo id</strong>
+          <strong>Tìm thông báo thuế theo id</strong>
           <span class="badge">FindById</span><br/>
           <span class="path">POST /TaxCDSTaxNotification/findById</span><br/>
           <a href="./modules/TaxCDSTaxNotification/TaxCDSTaxNotification_FindById.html">HTML</a> |
@@ -84,25 +84,25 @@
     </div> -->
 
     <div class="card">
-      <h2>Huong dan token (bat buoc)</h2>
-      <p>3 API tren yeu cau staff token trong header Authorization theo dinh dang <code>Bearer &lt;token&gt;</code>.</p>
+      <h2>Hướng dẫn token (bắt buộc)</h2>
+      <p>3 API trên yêu cầu staff token trong header Authorization theo định dạng <code>Bearer &lt;token&gt;</code>.</p>
       <ul>
-        <li>Buoc 1: Goi <code>POST /Staff/loginStaff</code> voi username va password staff.</li>
-        <li>Buoc 2: Lay <code>data.token</code> tu response login.</li>
-        <li>Buoc 3: Truyen vao header <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+        <li>Bước 1: Gọi <code>POST /Staff/loginStaff</code> với username và password staff.</li>
+        <li>Bước 2: Lấy <code>data.token</code> từ response login.</li>
+        <li>Bước 3: Truyền vào header <code>Authorization: Bearer &lt;token&gt;</code>.</li>
       </ul>
-      <p class="note">Xem them vi du curl dang nhap trong trang Common va tung API detail page.</p>
+      <p class="note">Xem thêm ví dụ curl đăng nhập trong trang Common và từng API detail page.</p>
     </div>
 
     <div class="card">
-      <h2>Data test tham chieu</h2>
+      <h2>Data test tham chiếu</h2>
       <ul>
         <li>username staff test: string</li>
         <li>password staff test: string</li>
-        <li>taxNotiNotificationCode mau: TAXCDS-NOTI-DEBT-001</li>
-        <li>taxNotiPayerTaxCode mau: 0312345678</li>
+        <li>taxNotiNotificationCode mẫu: TAXCDS-NOTI-DEBT-001</li>
+        <li>taxNotiPayerTaxCode mẫu: 0312345678</li>
       </ul>
-      <p class="note">Luu y: can thay bang tai khoan va du lieu moi truong that truoc khi UAT/production.</p>
+      <p class="note">Lưu ý: cần thay bằng tài khoản và dữ liệu môi trường thật trước khi UAT/production.</p>
     </div>
   </div>
 </body>

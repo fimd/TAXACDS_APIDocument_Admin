@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dem tong so thong bao thue</title>
+  <title>Đếm tổng số thông báo thuế</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
     .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
@@ -24,9 +24,9 @@
   <div class="wrap">
 
     <div class="card">
-      <h1>Admin API - Dem tong so thong bao thue</h1>
-      <p>Dem tong so thong bao thue trong he thong.</p>
-      <p><a href="./index.html">Ve module TaxCDSTaxNotification</a></p>
+      <h1>Admin API - Đếm tổng số thông báo thuế</h1>
+      <p>Đếm tổng số thông báo thuế trong hệ thống.</p>
+      <p><a href="./index.html">Về module TaxCDSTaxNotification</a></p>
     </div>
 
     <div class="card">
@@ -40,16 +40,16 @@
     <div class="card">
       <h2>Headers schema</h2>
       <table>
-        <tr><th>Header</th><th>Required</th><th>Mo ta</th></tr>
-        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Vi du: <code>Bearer eyJhbGciOi...</code></td></tr>
+        <tr><th>Header</th><th>Required</th><th>Mô tả</th></tr>
+        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Ví dụ: <code>Bearer eyJhbGciOi...</code></td></tr>
       </table>
     </div>
 
     <div class="card">
       <h2>Body schema</h2>
       <table>
-        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mo ta</th></tr>
-        <tr><td>-</td><td>-</td><td>-</td><td>-</td><td>Khong co tham so.</td></tr>
+        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mô tả</th></tr>
+        <tr><td>-</td><td>-</td><td>-</td><td>-</td><td>Không có tham số.</td></tr>
       </table>
     </div>
 
@@ -74,30 +74,30 @@
     </div>
 
     <div class="card">
-      <h2>Ma loi</h2>
+      <h2>Mã lỗi</h2>
       <table>
-        <tr><th style="width:100px">HTTP</th><th style="width:35%">Ma loi</th><th>Mo ta</th></tr>
-        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thieu hoac sai Authorization token.</td></tr>
-        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Loi khong xac dinh.</td></tr>
+        <tr><th style="width:100px">HTTP</th><th style="width:35%">Mã lỗi</th><th>Mô tả</th></tr>
+        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thiếu hoặc sai Authorization token.</td></tr>
+        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Lỗi không xác định.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h2>Tham khao</h2>
+      <h2>Tham khảo</h2>
       <ul>
-        <li><a href="../../Common.html#admin-auth">Quy trinh dang nhap va su dung Bearer token</a>.</li>
-        <li><a href="../../Common.html#common-error">Quy chuan chung - Common Error</a>.</li>
+        <li><a href="../../Common.html#admin-auth">Quy trình đăng nhập và sử dụng Bearer token</a>.</li>
+        <li><a href="../../Common.html#common-error">Quy chuẩn chung - Common Error</a>.</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Data test cho developer</h2>
       <ul>
-        <li>Login endpoint lay token: POST /Staff/loginStaff</li>
+        <li>Login endpoint lấy token: POST /Staff/loginStaff</li>
         <li>username test: string</li>
         <li>password test: string</li>
       </ul>
-      <p>Can thay bang du lieu moi truong that khi tich hop.</p>
+      <p>Cần thay bằng dữ liệu môi trường thật khi tích hợp.</p>
     </div>
 
   </div>
@@ -113,6 +113,6 @@
       setTimeout(() => toast.classList.remove('show'), 2000);
     });
   </script>
-  <div id="toast">Sao chep thanh cong</div>
+  <div id="toast">Sao chép thành công</div>
 </body>
 </html>

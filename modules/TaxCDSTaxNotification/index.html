@@ -35,15 +35,15 @@
   <div class="wrap">
     <div class="card">
       <h1>Admin API Module: TaxCDSTaxNotification</h1>
-      <p>Cac API quan ly va tra cuu thong bao thue cho he thong Admin.</p>
+      <p>Các API quản lý và tra cứu thông báo thuế cho hệ thống Admin.</p>
       <p>
-        <a href="../../index.html">Quay ve trang chu</a> |
+        <a href="../../index.html">Quay về trang chủ</a> |
         <a href="./index.md">Mo ban Markdown module</a>
       </p>
     </div>
 
     <div class="card">
-      <h2>Danh sach API</h2>
+      <h2>Danh sách API</h2>
       <ul>
         <li>
           <strong>Insert many thong bao thue</strong>
@@ -54,7 +54,7 @@
         </li>
 
         <li>
-          <strong>Tim danh sach thong bao thue</strong>
+          <strong>Tìm danh sách thông báo thuế</strong>
           <span class="badge">Find</span><br/>
           <span class="path">POST /TaxCDSTaxNotification/find</span><br/>
           <a href="./TaxCDSTaxNotification_Find.html">HTML</a> |
@@ -62,7 +62,7 @@
         </li>
 
         <li>
-          <strong>Tim thong bao thue theo id</strong>
+          <strong>Tìm thông báo thuế theo id</strong>
           <span class="badge">FindById</span><br/>
           <span class="path">POST /TaxCDSTaxNotification/findById</span><br/>
           <a href="./TaxCDSTaxNotification_FindById.html">HTML</a> |
@@ -139,22 +139,22 @@
     <div class="card">
       <h2>Token flow</h2>
       <ul>
-        <li>Dang nhap staff qua POST /Staff/loginStaff voi username/password.</li>
-        <li>Lay data.token tu response.</li>
-        <li>Gan vao header Authorization cho cac API trong module nay.</li>
+        <li>Đăng nhập staff qua POST /Staff/loginStaff với username/password.</li>
+        <li>Lấy data.token tu response.</li>
+        <li>Gắn vào header Authorization cho các API trong module này.</li>
       </ul>
-      <p>Xem vi du day du tai <a href="../../Common.html#admin-auth">Common.html#admin-auth</a>.</p>
+      <p>Xem ví dụ đầy đủ tại <a href="../../Common.html#admin-auth">Common.html#admin-auth</a>.</p>
     </div>
 
     <div class="card">
-      <h2>Data test tham chieu</h2>
+      <h2>Data test tham chiếu</h2>
       <ul>
         <li>username: string</li>
         <li>password: string</li>
         <li>taxNotiNotificationCode: TAXCDS-NOTI-DEBT-001</li>
         <li>taxNotiPayerTaxCode: 0312345678</li>
       </ul>
-      <p>Can thay bang du lieu moi truong that khi tich hop.</p>
+      <p>Cần thay bằng dữ liệu môi trường thật khi tích hợp.</p>
     </div>
   </div>
 </body>

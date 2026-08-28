@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dem thong ke theo doi tac</title>
+  <title>Đếm thống kê theo đối tác</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
     .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
@@ -24,9 +24,9 @@
   <div class="wrap">
 
     <div class="card">
-      <h1>Admin API - Dem thong ke theo doi tac</h1>
-      <p>Dem va thong ke so luong thong bao thue theo tung doi tac (tram).</p>
-      <p><a href="./index.html">Ve module TaxCDSTaxNotification</a></p>
+      <h1>Admin API - Đếm thống kê theo đối tác</h1>
+      <p>Đếm và thống kê số lượng thông báo thuế theo từng đối tác (trạm).</p>
+      <p><a href="./index.html">Về module TaxCDSTaxNotification</a></p>
     </div>
 
     <div class="card">
@@ -40,22 +40,22 @@
     <div class="card">
       <h2>Headers schema</h2>
       <table>
-        <tr><th>Header</th><th>Required</th><th>Mo ta</th></tr>
-        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Vi du: <code>Bearer eyJhbGciOi...</code></td></tr>
+        <tr><th>Header</th><th>Required</th><th>Mô tả</th></tr>
+        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Ví dụ: <code>Bearer eyJhbGciOi...</code></td></tr>
       </table>
     </div>
 
     <div class="card">
       <h2>Body schema</h2>
       <table>
-        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mo ta</th></tr>
-        <tr><td>filter</td><td>object</td><td>No</td><td>default {}</td><td>Bo loc tim kiem.</td></tr>
-        <tr><td>filter.stationId</td><td>number/array</td><td>No</td><td></td><td>Loc theo ID tram (mot hoac nhieu).</td></tr>
-        <tr><td>filter.taxCDSTaxNotificationId</td><td>number</td><td>No</td><td></td><td>Loc theo ID thong bao thue.</td></tr>
-        <tr><td>filter.lastReceivingStatus</td><td>string</td><td>No</td><td></td><td>Loc theo trang thai nhan cuoi.</td></tr>
-        <tr><td>filter.lastFeedbackStatus</td><td>string</td><td>No</td><td></td><td>Loc theo trang thai phan hoi cuoi.</td></tr>
-        <tr><td>skip</td><td>number</td><td>No</td><td>min(0), default 0</td><td>So ban ghi bo qua.</td></tr>
-        <tr><td>limit</td><td>number</td><td>No</td><td>max(100), default 20</td><td>So ban ghi toi da tra ve.</td></tr>
+        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mô tả</th></tr>
+        <tr><td>filter</td><td>object</td><td>No</td><td>default {}</td><td>Bộ lọc tìm kiếm.</td></tr>
+        <tr><td>filter.stationId</td><td>number/array</td><td>No</td><td></td><td>Lọc theo ID trạm (một hoặc nhiều).</td></tr>
+        <tr><td>filter.taxCDSTaxNotificationId</td><td>number</td><td>No</td><td></td><td>Lọc theo ID thông báo thuế.</td></tr>
+        <tr><td>filter.lastReceivingStatus</td><td>string</td><td>No</td><td></td><td>Lọc theo trạng thái nhận cuối.</td></tr>
+        <tr><td>filter.lastFeedbackStatus</td><td>string</td><td>No</td><td></td><td>Lọc theo trạng thái phản hồi cuối.</td></tr>
+        <tr><td>skip</td><td>number</td><td>No</td><td>min(0), default 0</td><td>Số bản ghi bỏ qua.</td></tr>
+        <tr><td>limit</td><td>number</td><td>No</td><td>max(100), default 20</td><td>Số bản ghi tối đa trả về.</td></tr>
       </table>
     </div>
 
@@ -84,7 +84,7 @@
     "data": [
       {
         "stationId": 123,
-        "stationsName": "Tram A",
+        "stationsName": "Trạm A",
         "totalNotifications": 150,
         "receivedSuccess": 120,
         "feedbackSuccess": 100
@@ -96,32 +96,32 @@
     </div>
 
     <div class="card">
-      <h2>Ma loi</h2>
+      <h2>Mã lỗi</h2>
       <table>
-        <tr><th style="width:100px">HTTP</th><th style="width:35%">Ma loi</th><th>Mo ta</th></tr>
-        <tr><td>400</td><td><em>Validation Error</em></td><td>Payload khong dung schema.</td></tr>
-        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thieu hoac sai Authorization token.</td></tr>
-        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Loi khong xac dinh.</td></tr>
+        <tr><th style="width:100px">HTTP</th><th style="width:35%">Mã lỗi</th><th>Mô tả</th></tr>
+        <tr><td>400</td><td><em>Validation Error</em></td><td>Payload không đúng schema.</td></tr>
+        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thiếu hoặc sai Authorization token.</td></tr>
+        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Lỗi không xác định.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h2>Tham khao</h2>
+      <h2>Tham khảo</h2>
       <ul>
-        <li><a href="../../Common.html#admin-auth">Quy trinh dang nhap va su dung Bearer token</a>.</li>
-        <li><a href="../../Common.html#common-error">Quy chuan chung - Common Error</a>.</li>
+        <li><a href="../../Common.html#admin-auth">Quy trình đăng nhập và sử dụng Bearer token</a>.</li>
+        <li><a href="../../Common.html#common-error">Quy chuẩn chung - Common Error</a>.</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Data test cho developer</h2>
       <ul>
-        <li>Login endpoint lay token: POST /Staff/loginStaff</li>
+        <li>Login endpoint lấy token: POST /Staff/loginStaff</li>
         <li>username test: string</li>
         <li>password test: string</li>
         <li>stationId: 123</li>
       </ul>
-      <p>Can thay bang du lieu moi truong that khi tich hop.</p>
+      <p>Cần thay bằng dữ liệu môi trường thật khi tích hợp.</p>
     </div>
 
   </div>
@@ -137,6 +137,6 @@
       setTimeout(() => toast.classList.remove('show'), 2000);
     });
   </script>
-  <div id="toast">Sao chep thanh cong</div>
+  <div id="toast">Sao chép thành công</div>
 </body>
 </html>

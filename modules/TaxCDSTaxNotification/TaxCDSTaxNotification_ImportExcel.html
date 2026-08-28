@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Import thong bao thue tu Excel</title>
+  <title>Import thông báo thuế từ Excel</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
     .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
@@ -24,9 +24,9 @@
   <div class="wrap">
 
     <div class="card">
-      <h1>Admin API - Import thong bao thue tu Excel</h1>
-      <p>Import danh sach thong bao thue tu file Excel.</p>
-      <p><a href="./index.html">Ve module TaxCDSTaxNotification</a></p>
+      <h1>Admin API - Import thông báo thuế từ Excel</h1>
+      <p>Import danh sách thông báo thuế từ file Excel.</p>
+      <p><a href="./index.html">Về module TaxCDSTaxNotification</a></p>
     </div>
 
     <div class="card">
@@ -40,22 +40,22 @@
     <div class="card">
       <h2>Headers schema</h2>
       <table>
-        <tr><th>Header</th><th>Required</th><th>Mo ta</th></tr>
-        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Vi du: <code>Bearer eyJhbGciOi...</code></td></tr>
+        <tr><th>Header</th><th>Required</th><th>Mô tả</th></tr>
+        <tr><td>Authorization</td><td>Yes</td><td>Bearer staff token. Ví dụ: <code>Bearer eyJhbGciOi...</code></td></tr>
       </table>
     </div>
 
     <div class="card">
       <h2>Body schema</h2>
       <table>
-        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mo ta</th></tr>
-        <tr><td>file</td><td>binary</td><td>Yes</td><td>base64 encoded</td><td>File Excel duoc ma hoa base64.</td></tr>
-        <tr><td>fileFormat</td><td>string</td><td>Yes</td><td>valid(['xlsx', 'xls'])</td><td>Dinh dang file Excel.</td></tr>
+        <tr><th>Field</th><th>Type</th><th>Required</th><th>Rule</th><th>Mô tả</th></tr>
+        <tr><td>file</td><td>binary</td><td>Yes</td><td>base64 encoded</td><td>File Excel được mã hóa base64.</td></tr>
+        <tr><td>fileFormat</td><td>string</td><td>Yes</td><td>valid(['xlsx', 'xls'])</td><td>Định dạng file Excel.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h2 style="display:flex;align-items:center;gap:8px;">Sample Request <button id="copySampleBtn" title="Copy sang clipboard" style="background:none;border:1px solid #dbe3ef;border-radius:6px;padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0b63ce" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg></button></h2>
+      <h2 style="display:flex;align-items:center;gap:8px;">Sample Request <button id="copySampleBtn" title="Sao chép sang clipboard" style="background:none;border:1px solid #dbe3ef;border-radius:6px;padding:4px 8px;cursor:pointer;display:inline-flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0b63ce" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg></button></h2>
       <pre id="curlText">curl --location 'http://127.0.0.1:4001/TaxCDSTaxNotification/importExcel' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer &lt;staff_token&gt;' \
@@ -80,34 +80,34 @@
     </div>
 
     <div class="card">
-      <h2>Ma loi</h2>
+      <h2>Mã lỗi</h2>
       <table>
-        <tr><th style="width:100px">HTTP</th><th style="width:35%">Ma loi</th><th>Mo ta</th></tr>
-        <tr><td>400</td><td><em>Validation Error</em></td><td>Payload khong dung schema (thieu file, sai fileFormat).</td></tr>
-        <tr><td>400</td><td><code>INVALID_FILE_FORMAT</code></td><td>File khong dung dinh dang Excel.</td></tr>
-        <tr><td>400</td><td><code>FILE_TOO_LARGE</code></td><td>File vuot qua 20MB.</td></tr>
-        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thieu hoac sai Authorization token.</td></tr>
-        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Loi khong xac dinh.</td></tr>
+        <tr><th style="width:100px">HTTP</th><th style="width:35%">Mã lỗi</th><th>Mô tả</th></tr>
+        <tr><td>400</td><td><em>Validation Error</em></td><td>Payload không đúng schema (thiếu file, sai fileFormat).</td></tr>
+        <tr><td>400</td><td><code>INVALID_FILE_FORMAT</code></td><td>File không đúng định dạng Excel.</td></tr>
+        <tr><td>400</td><td><code>FILE_TOO_LARGE</code></td><td>File vượt quá 20MB.</td></tr>
+        <tr><td>401</td><td><code>UNAUTHORIZED</code></td><td>Thiếu hoặc sai Authorization token.</td></tr>
+        <tr><td>500</td><td><code>UNKNOWN_ERROR</code></td><td>Lỗi không xác định.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h2>Tham khao</h2>
+      <h2>Tham khảo</h2>
       <ul>
-        <li><a href="../../Common.html#admin-auth">Quy trinh dang nhap va su dung Bearer token</a>.</li>
-        <li><a href="../../Common.html#common-error">Quy chuan chung - Common Error</a>.</li>
+        <li><a href="../../Common.html#admin-auth">Quy trình đăng nhập và sử dụng Bearer token</a>.</li>
+        <li><a href="../../Common.html#common-error">Quy chuẩn chung - Common Error</a>.</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Data test cho developer</h2>
       <ul>
-        <li>Login endpoint lay token: POST /Staff/loginStaff</li>
+        <li>Login endpoint lấy token: POST /Staff/loginStaff</li>
         <li>username test: string</li>
         <li>password test: string</li>
-        <li>Tai file mau Excel tai: /templates/tax_notification_template.xlsx</li>
+        <li>Tải file mẫu Excel tại: /templates/tax_notification_template.xlsx</li>
       </ul>
-      <p>Can thay bang du lieu moi truong that khi tich hop.</p>
+      <p>Cần thay bằng dữ liệu môi trường thật khi tích hợp.</p>
     </div>
 
   </div>
@@ -123,6 +123,6 @@
       setTimeout(() => toast.classList.remove('show'), 2000);
     });
   </script>
-  <div id="toast">Sao chep thanh cong</div>
+  <div id="toast">Sao chép thành công</div>
 </body>
 </html>
